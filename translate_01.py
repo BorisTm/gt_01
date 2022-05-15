@@ -6,10 +6,12 @@ def translate_01():
     str_01 = input("Enter a sentence to translate: ")
     translator = Translator()
     try:
-        result = translator.translate(str_01, src='ru', dest='en')
-        print('src:', result.src)
-        print('dest:', result.dest)
-        print('text:', result.text)
+        ru_to_en = translator.translate(str_01, src='ru', dest='en')
+        en_to_ru = translator.translate(str_01, src='en', dest='ru')
+        ru_to_ua = translator.translate(str_01, src='ru', dest='uk')
+        print('ru_to_en:', ru_to_en.text)
+        print('en_to_ru:', en_to_ru.text)
+        print('ru_to_ua:', ru_to_ua.text)
 
     except BaseException as err:
         print(f"Unexpected error: {err}, {type(err)}")
